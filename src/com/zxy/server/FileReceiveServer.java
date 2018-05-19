@@ -1,4 +1,4 @@
-package com.zxy_01;
+package com.zxy.server;
 
 public class FileReceiveServer {
 
