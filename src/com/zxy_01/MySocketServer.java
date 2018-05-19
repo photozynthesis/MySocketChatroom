@@ -10,7 +10,6 @@ public abstract class MySocketServer {
 	
 	ServerSocket ss;
 	InetAddress address;
-	Socket s;
 	
 	public MySocketServer(int port) throws IOException {
 		this.ss = new ServerSocket(port);
@@ -24,12 +23,16 @@ public abstract class MySocketServer {
 		this.address = InetAddress.getByName(ip);
 	}
 
-	public Socket getSocket() {
-		return s;
-	}
-
-	public void setSocket(Socket s) {
-		this.s = s;
-	}
+	// public Socket getSocket() {
+	// return s;
+	// }
+	//
+	// public void setSocket(Socket s) {
+	// this.s = s;
+	// }
+	
+	public abstract void startServer();
+	
+	public abstract void shutDown();
 	
 }
