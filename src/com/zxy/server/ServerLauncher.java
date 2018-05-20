@@ -19,7 +19,7 @@ public class ServerLauncher {
 			int port = sc.nextInt();
 			System.out.println("正在启动聊天服务器...");
 			ChatServer server = new ChatServer(port);
-			System.out.println("聊天服务器已在端口" + port + "上启动，正在等待客户端的连接...");
+			System.out.println("聊天服务器已在地址" + server.getLocalAddress() + "端口" + port + "上启动，正在等待客户端的连接...");
 			server.startServer();
 			
 		// case 2:

@@ -9,12 +9,15 @@ public class MsgReceiveThread implements Runnable {
 
 	private ChatServer server;
 	
+	private User user;
+	
 	private String address;
 	private BufferedReader br;
 
-	public MsgReceiveThread(ChatServer server, Socket s) {
+	public MsgReceiveThread(ChatServer server, User user, Socket s) {
 
 		this.server = server;
+		this.user = user;
 		this.address = s.getInetAddress().getHostAddress();
 		try {
 			this.br = new BufferedReader(new InputStreamReader(s.getInputStream()));
@@ -30,16 +33,13 @@ public class MsgReceiveThread implements Runnable {
 		String input;
 		try {
 			while ((input = br.readLine()) != null) {
-				if (input.equals("88")) {
-					this.server.msg(address + ": " + input);
-					this.server.msg("[System]: " + address + "已断开连接");
-					break;
-				}
 				this.server.msg(address + ": " + input);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		this.user.disconnect();
 		
 	}
 

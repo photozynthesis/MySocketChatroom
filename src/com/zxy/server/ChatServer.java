@@ -13,8 +13,8 @@ import java.net.UnknownHostException;
 
 public class ChatServer extends MySocketServer {
 
-	DatagramSocket ds;
-	InetAddress broadcastIp;
+	private DatagramSocket ds;
+	private InetAddress broadcastIp;
 
 	/**
 	 * 通过port构造ServerSocket对象，启动服务端 仅供本类内部使用
